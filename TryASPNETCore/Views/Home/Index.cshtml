@@ -1,0 +1,29 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+	<div class="col-md-12 list-group-item">
+		@model List<TryASPNETCore.Model.Character>
+		<form asp-action="Create" asp-controller="Home">
+			<div>
+				<br />
+				<input name="CharacterName" class="form-control" placeholder="Character Name.." autocomplete="off" autofocus />
+				<br />
+				<input type="submit" value="Add Character" class="btn btn-primary" />
+				<br /><br />
+				@if (Model.Any())
+				{
+					<ul>
+						@foreach (var item in Model)
+						{
+							<li>
+								<label>@item.Name</label>
+							</li>
+						}
+					</ul>
+				}
+			</div>
+		</form>
+	</div>
+</div>
